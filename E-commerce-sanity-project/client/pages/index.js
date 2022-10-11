@@ -17,9 +17,9 @@ export default function Home() {
       </div>
 
       <div className="products-container">
-      {products?.map((product) => (
-        product
-      ))}
+        {products?.map((product) => (
+          product
+        ))}
       </div>
 
       <Footer />
