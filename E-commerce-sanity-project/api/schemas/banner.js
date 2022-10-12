@@ -2,6 +2,7 @@ export default {
     name: 'banner',
     title: 'Banner',
     type: 'document',
+    description: 'description for banner',
     fields: [
         {
             name: 'image',
@@ -10,11 +11,13 @@ export default {
             options: {
                 hotspot: true,
             },
+            description: 'One published banner is allowd',
         },
         {
             name: 'buttonText',
             title: 'ButtonText',
             type: 'string',
+            description: 'One published banner is allowd',
         },
         {
             name: 'product',

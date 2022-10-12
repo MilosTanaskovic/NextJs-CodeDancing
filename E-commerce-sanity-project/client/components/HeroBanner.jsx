@@ -1,23 +1,39 @@
 import React from 'react';
 import Link from 'next/link';
+import {urlFor} from '../lib/client';
 
-const HeroBanner = () => {
+const HeroBanner = ({heroBanner}) => {
+    const {
+        buttonText, 
+        desc, 
+        discount, 
+        image, 
+        largeText1, 
+        largeText2, 
+        midText, 
+        product,  
+        saleTime,
+        smallText,
+    } = heroBanner;
+
+    console.log('heroBanner: ', heroBanner);
     return (
         <div className="hero-banner-container">
           <div>
-            <p className="beats-solo">TEXT</p>
-            <h3>MID TEXT</h3>
-            <img src="" alt="" className="hero-banner-image" />
+            <p className="beats-solo">{smallText}</p>
+            <h3>{midText}</h3>
+            <h1>{largeText1}</h1>
+            <img src={urlFor(image)} alt={product} className="hero-banner-image" />
 
             <div>
-                <Link href="/product/ID">
+                <Link href={`/product/${product}`}>
                     <button type="button">
-                        BUTTON TEXT
+                        {buttonText}
                     </button>
                 </Link>
                 <div className="desc">
                     <h5>Description</h5>
-                    <p>DESCRIPTION</p>
+                    <p>{desc}</p>
                 </div>
             </div>
           </div>
