@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 
-import {urlFor} from '../lib/client'
+import {urlFor} from '../lib/client';
 
 const SaleBanner = ({saleBanner}) => {
     const {
+        discount,
         buttonText, 
-        desc, 
-        discount, 
+        desc,  
         image, 
         largeText1, 
         largeText2, 

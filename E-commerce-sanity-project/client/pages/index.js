@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import styles from '../styles/Home.module.css'
-import { Footer, HeroBanner, SaleBanner } from '../components';
+import { HeroBanner, SaleBanner } from '../components';
 import {client, urlFor} from '../lib/client'
 import Product from '../components/Product';
 
@@ -32,7 +32,6 @@ const Home = ({products, bannerData}) => {
 
       <SaleBanner saleBanner={bannerData.length && (bannerData[0])} />
 
-      <Footer />
     </div>
   );
 }
