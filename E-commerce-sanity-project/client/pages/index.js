@@ -1,13 +1,18 @@
 import React, {useState} from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
+
 import styles from '../styles/Home.module.css'
 import { Footer, HeroBanner } from '../components';
+import {client, urlFor} from '../lib/client'
+import Product from '../components/Product';
 
-export default function Home() {
-  const [products, setProducts] = useState(['Product1', 'Product2']);
+const Home = ({products, bannerData}) => {
+
+  console.log('prods: ', products)
+  console.log('banner: ', bannerData)
   return (
-    <>
+    <div>
       
       <HeroBanner />
 
@@ -18,11 +23,33 @@ export default function Home() {
 
       <div className="products-container">
         {products?.map((product) => (
-          product
+          <Product 
+            product={product}
+          />
         ))}
       </div>
 
       <Footer />
-    </>
-  )
+    </div>
+  );
 }
+
+// This gets called on every request
+export const getServerSideProps = async () => {
+  // Fetch data from external API
+  const productQuery = '*[_type == "product"]';
+  const products = await client.fetch(productQuery);
+
+  const bannerQuery = '*[_type == "banner"]';
+  const bannerData = await client.fetch(bannerQuery);
+
+  // Pass data to the page via props
+  return {
+    props: {
+      products,
+      bannerData,
+    }
+  }
+}
+
+export default Home;
