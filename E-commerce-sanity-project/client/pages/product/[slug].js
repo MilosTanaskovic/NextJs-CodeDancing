@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
+import Marquee from '../../components/Marquee';
 
 import {client, urlFor} from '../../lib/client';
 
@@ -88,10 +89,11 @@ const ProductDetails = ({product, products}) => {
                         </button>
                     </div>
                 </div>
-
-                {/**  */}
-                
+              
             </div>
+
+            {/**  */}
+            <Marquee products={products}  />
         </div>
     )
 }
