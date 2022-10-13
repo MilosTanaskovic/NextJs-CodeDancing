@@ -8,13 +8,17 @@ import {client, urlFor} from '../lib/client'
 import Product from '../components/Product';
 
 const Home = ({products, bannerData}) => {
+  const heroBannerObj = bannerData.filter((item) => item?.slug?.current === 'herobanner');
+  const saleBanerObj = bannerData.filter((item) => item?.slug?.current === 'salebanner');
 
   console.log('prods: ', products)
   console.log('banner: ', bannerData)
+  console.log('heroBannerObj: ', heroBannerObj);
+  console.log('saleBanerObj: ', saleBanerObj);
   return (
     <div>
       
-      <HeroBanner heroBanner={bannerData.length && (bannerData[0])} />
+      <HeroBanner heroBanner={bannerData.length && (heroBannerObj[0])} />
 
       <div className="products-heading">
         <h2>Beset Selling Products</h2>
@@ -30,7 +34,7 @@ const Home = ({products, bannerData}) => {
         ))}
       </div>
 
-      <SaleBanner saleBanner={bannerData.length && (bannerData[0])} />
+      <SaleBanner saleBanner={bannerData.length && (saleBanerObj[0])} />
 
     </div>
   );

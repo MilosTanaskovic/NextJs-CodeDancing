@@ -24,6 +24,18 @@ export default {
             title: 'Product',
             type: 'string',
         },
+         // slug - unique identifiers/name / URLs
+         {
+            name: 'slug',
+            title: 'Slug',
+            description: 'filtering banners by slug',
+            type: 'slug',
+            options: { 
+                source: 'product',
+                maxLength: 90,
+            }
+
+        },
         {
             name: 'desc',
             title: 'Desc',
