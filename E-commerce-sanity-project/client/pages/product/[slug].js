@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
 import Marquee from '../../components/Marquee';
 
@@ -6,6 +6,7 @@ import {client, urlFor} from '../../lib/client';
 
 const ProductDetails = ({product, products}) => {
     const {details, image, name, price, slug, _id} = product;
+    const [index, setIndex] = useState(0);
 
     console.log('Product Detail: ', product);
     console.log('Products Detail: ', products);
@@ -14,19 +15,23 @@ const ProductDetails = ({product, products}) => {
             <div className="product-detail-container">
                 <div>
                     <div className="image-container">
-                        <img src={urlFor(image && image[0])} alt={name} />
+                        <img 
+                            src={urlFor(image && image[index])} 
+                            alt={name} 
+                            className="product-detail-image"
+                        />
                     </div>
 
-                    {/*<div className="small-images-container">
+                    <div className="small-images-container">
                         {image?.map((item, i) => (
                             <img 
                                 key={i}
                                 src={urlFor(item)}
-                                className=""
-                                onMouseEnter=""
+                                className={i === index ? 'small-image selected-image' : 'small-image'}
+                                onMouseEnter={() => setIndex(i)}
                             />
                         ))}
-                        </div> */}
+                    </div>
                     
                     
                 </div>
