@@ -4,12 +4,17 @@ import Marquee from '../../components/Marquee';
 
 import {client, urlFor} from '../../lib/client';
 
+import { useStateContext } from '../../context/StateContext'
+
 const ProductDetails = ({product, products}) => {
     const {details, image, name, price, slug, _id} = product;
     const [index, setIndex] = useState(0);
 
+    const { qty, handleIncQty, handleDecQty, handleAddToCart } = useStateContext();
+
     console.log('Product Detail: ', product);
     console.log('Products Detail: ', products);
+    console.log('useSC - qty: ', qty);
     return (
         <div>
             <div className="product-detail-container">
@@ -59,7 +64,7 @@ const ProductDetails = ({product, products}) => {
                         <p className="quantity-desc">
                             <span 
                                 className="minus"
-                                onClick=""
+                                onClick={handleDecQty}
                             >
                                 <AiOutlineMinus />
                             </span>
@@ -67,11 +72,11 @@ const ProductDetails = ({product, products}) => {
                                 className="num"
                                 onClick=""
                             >
-                                QTY
+                                {qty}
                             </span>
                             <span 
                                 className="plus"
-                                onClick=""
+                                onClick={handleIncQty}
                             >
                                 <AiOutlinePlus />
                             </span>
@@ -81,7 +86,7 @@ const ProductDetails = ({product, products}) => {
                         <button
                             type="button"
                             className="add-to-cart"
-                            onClick=""
+                            onClick={() => handleAddToCart(product, qty)} 
                         >
                             Add to Cart
                         </button>
