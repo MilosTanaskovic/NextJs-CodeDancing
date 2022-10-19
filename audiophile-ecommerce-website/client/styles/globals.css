@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 a {
@@ -13,14 +12,20 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: auto;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
     color: white;
     background: black;
+  }
+} */
+@media (max-width: 1200px) {
+  .img-height {
+    height: 300px !important;
   }
 }
