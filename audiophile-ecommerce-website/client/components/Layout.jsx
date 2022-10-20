@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import NavBar from './NavBar';
 import { Footer } from '.';
+import UnderLine from './UnderLine';
+import NavBanner from './NavBanner';
 
 const Layout = ({children}) => {
     return (
@@ -19,13 +21,15 @@ const Layout = ({children}) => {
                 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <header>
+            <header className="header">
                 <NavBar />
+                <UnderLine />
+                <NavBanner />
             </header>
             <main>
                 {children}
             </main>
-            <footer>
+            <footer className="footer">
                 <Footer />
             </footer>
         </div>

@@ -29,3 +29,10 @@ a {
     height: 300px !important;
   }
 }
+
+header, footer {
+  width: 100%;
+  min-height: 96px;
+  background-color: #101010;
+  color: white;
+}

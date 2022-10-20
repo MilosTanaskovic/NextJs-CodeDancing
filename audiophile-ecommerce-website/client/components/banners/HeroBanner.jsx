@@ -18,10 +18,11 @@ const HeroBanner = ({heroBannerData}) => {
             direction="row"
             spacing={2}
             mb="120px"
-            width='100%'
+            
             sx={{
-                backgroundColor: '#191919',
-                gap: {lg: '2rem'}
+                backgroundColor: '#101010',
+                gap: {lg: '2rem'},
+                width: {xs: '327px', sm: '500px', md: '689px', lg: '1110px'},
             }}
         >
             <Box
@@ -32,6 +33,8 @@ const HeroBanner = ({heroBannerData}) => {
                     gap: {md: '24px', sm: '18px'},
                     width: {md: '400px', sm: '350px'}
                 }}
+                mb="150px"
+                mt="150px"
             >
                 <TypographyDS
                     color='#979797'
@@ -80,10 +83,11 @@ const HeroBanner = ({heroBannerData}) => {
             </Box>
             <Box
                 sx={{
+                    display: 'flex',
                     width: {xs: '100%', lg: '500px'}
                 }}
             >
-                <img src={urlFor(image)} alt={Title} style={{display: 'flex'}} />
+                <img src={urlFor(image)} alt={Title} style={{display: 'flex', margin: 0, objectFit: 'cover'}} />
             </Box>
         </Stack>
     )

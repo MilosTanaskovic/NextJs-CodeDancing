@@ -7,18 +7,23 @@ import { client } from '../lib/client'
 import styles from '../styles/Home.module.css'
 import { EarPhoneBanner, HeadPhoneBanner, HeroBanner, PromoBanner, SpeakerBanner } from '../components/banners';
 import { Categories } from '../components';
+import { useStateContext } from '../context/StateContext';
 
-const Home = ({bannerData, categoryData}) => {
+const Home = ({bannerData, categoryData, infoData}) => {
+  const {setInfo, setHeroBanner} = useStateContext();
 
   const heroBanner = bannerData?.filter((item) => item.name === "HeroBanner");
   const speakerBanner = bannerData?.filter((item) => item.name === "SpeakerBanner");
   const headphoneBanner = bannerData?.filter((item) => item.name === "HeadphoneBanner");
   const earPhoneBanner = bannerData?.filter((item) => item.name === "EarPhoneBanner");
   const promoBanner = bannerData?.filter((item) => item.name === "PromoBanner");
-  
+
+  setInfo(infoData);
+  setHeroBanner(heroBanner);
 
   console.log('Banner Data: ', bannerData);
   console.log('Categories Data: ', categoryData);
+  console.log('Info Data: ', infoData);
   return (
     <Box
       component="div"
@@ -31,9 +36,9 @@ const Home = ({bannerData, categoryData}) => {
         
       }}
     >
-      <HeroBanner 
+      {/* <HeroBanner 
         heroBannerData={bannerData && (heroBanner[0])}
-      />
+      /> */}
       <Categories categoryData={categoryData} />
 
       <SpeakerBanner speakerBannerData={bannerData && (speakerBanner[0])} />
@@ -55,6 +60,11 @@ export const getServerSideProps = async () => {
   const queryCategory = '*[_type == "category"]';
   const categoryData = await client.fetch(queryCategory);
 
+  const queryInfo = '*[_type == "information"]';
+  const infoData = await client.fetch(queryInfo);
+
+
+
   if(!categoryData) {
     return {
       redirect: {
@@ -67,7 +77,8 @@ export const getServerSideProps = async () => {
   return {
     props: {
       bannerData,
-      categoryData
+      categoryData,
+      infoData
     }
   }
 }
