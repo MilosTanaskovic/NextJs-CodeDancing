@@ -10,6 +10,16 @@ export default {
             description: 'Desc Name',
         },
         {
+            name: 'slug',
+            type: 'slug',
+            title: 'Category Slug',
+            description: 'Category Slug',
+            options: {
+                source: 'name',
+                maxLength: 90,
+            }
+        },
+        {
             name: 'image',
             type: 'image',
             title: 'Category Image',

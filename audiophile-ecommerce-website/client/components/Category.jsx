@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Link from 'next/link';
 import {Paper, Grid, Box} from '@mui/material';
 import {styled} from '@mui/material/styles';
 
@@ -19,9 +20,9 @@ const Item = styled(Paper)(({}) => ({
 
 
 const Category = ({categoryData}) => {
-    const {name, btnText, image} = categoryData;
+    const {name, btnText, image, slug} = categoryData;
 
-    console.log('Category Data: ', categoryData);
+    // console.log('Category Data: ', categoryData);
     return (
         <Grid item xs={12} md={6} lg={4}>
             <Item>
@@ -49,7 +50,9 @@ const Category = ({categoryData}) => {
                         {name}
                     </TypographyDS>
                     <ButtonThree>
-                        {btnText}
+                        <Link href={`/category/${slug.current}`}>
+                            {btnText}
+                        </Link>
                     </ButtonThree>
                 </Box>
             </Item>

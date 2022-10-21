@@ -9,7 +9,7 @@ import { ButtonTwo } from '../buttons';
 const HeadPhoneBanner = ({headphoneBannerData}) => {
     const {name, Title, buttonText, image} = headphoneBannerData;
 
-    console.log("HeadphoneBannerData: ", headphoneBannerData)
+    // console.log("HeadphoneBannerData: ", headphoneBannerData)
     return (
         <Box
             component="section"

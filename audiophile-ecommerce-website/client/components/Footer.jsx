@@ -11,8 +11,8 @@ import { TypographyDS } from './typography';
 const Footer = () => {
     const {info} = useStateContext();
     
-    console.log('Footer Data: ', info[0])
-    console.log('Footer Logo: ', info[0]?.image)
+    // console.log('Footer Data: ', info[0])
+    // console.log('Footer Logo: ', info[0]?.image)
     return (
         <Box
             component="div"

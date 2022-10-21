@@ -61,26 +61,26 @@ const ProductDetails = ({product, products}) => {
                     <p className="price">${price}</p>
                     <div className="quantity">
                         <h3>Quantity:</h3>
-                        <p className="quantity-desc">
-                            <span 
-                                className="minus"
-                                onClick={handleDecQty}
-                            >
-                                <AiOutlineMinus />
-                            </span>
-                            <span 
-                                className="num"
-                                onClick=""
-                            >
-                                {qty}
-                            </span>
-                            <span 
-                                className="plus"
-                                onClick={handleIncQty}
-                            >
-                                <AiOutlinePlus />
-                            </span>
-                        </p>
+                    <p className="quantity-desc">
+                        <span 
+                            className="minus"
+                            onClick={handleDecQty}
+                        >
+                            <AiOutlineMinus />
+                        </span>
+                        <span 
+                            className="num"
+                            onClick=""
+                        >
+                            {qty}
+                        </span>
+                        <span 
+                            className="plus"
+                            onClick={handleIncQty}
+                        >
+                            <AiOutlinePlus />
+                        </span>
+                    </p>
                     </div>
                     <div className="buttons">
                         <button

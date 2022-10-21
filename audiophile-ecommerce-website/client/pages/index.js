@@ -10,7 +10,12 @@ import { Categories } from '../components';
 import { useStateContext } from '../context/StateContext';
 
 const Home = ({bannerData, categoryData, infoData}) => {
-  const {setInfo, setHeroBanner} = useStateContext();
+  const {
+    setInfo, 
+    setHeroBanner, 
+    setCategories, 
+    setPromoBanner
+  } = useStateContext();
 
   const heroBanner = bannerData?.filter((item) => item.name === "HeroBanner");
   const speakerBanner = bannerData?.filter((item) => item.name === "SpeakerBanner");
@@ -20,10 +25,12 @@ const Home = ({bannerData, categoryData, infoData}) => {
 
   setInfo(infoData);
   setHeroBanner(heroBanner);
+  setCategories(categoryData);
+  setPromoBanner(promoBanner)
 
-  console.log('Banner Data: ', bannerData);
-  console.log('Categories Data: ', categoryData);
-  console.log('Info Data: ', infoData);
+  // console.log('Banner Data: ', bannerData);
+  // console.log('Categories Data: ', categoryData);
+  // console.log('Info Data: ', infoData);
   return (
     <Box
       component="div"

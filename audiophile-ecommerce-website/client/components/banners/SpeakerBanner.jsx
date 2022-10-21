@@ -8,7 +8,7 @@ import { ButtonTwo } from '../buttons';
 const SpeakerBanner = ({speakerBannerData}) => {
     const {name, Description, Title, buttonText, image} = speakerBannerData;
 
-    console.log("SpeakerBannerData: ", speakerBannerData)
+    // console.log("SpeakerBannerData: ", speakerBannerData)
     return (
         <Grid
             component="section"

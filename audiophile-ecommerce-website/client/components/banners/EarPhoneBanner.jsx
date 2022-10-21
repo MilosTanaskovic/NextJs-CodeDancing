@@ -16,7 +16,7 @@ const Item = styled(Paper)(({}) => ({
 const EarPhoneBanner = ({earPhoneBannerData}) => {
     const {name, Title, buttonText, image} = earPhoneBannerData;
 
-    console.log('EarPhoneBannerData: ', earPhoneBannerData)
+    // console.log('EarPhoneBannerData: ', earPhoneBannerData)
     return (
         <Box
             component="section"

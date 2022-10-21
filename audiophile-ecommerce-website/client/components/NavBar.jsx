@@ -8,7 +8,7 @@ import { TypographyDS } from './typography';
 const NavBar = () => {
     const {info} = useStateContext();
 
-    console.log('NavBar Info: ', info[0])
+    // console.log('NavBar Info: ', info[0])
     return (
         <Box
             component="div"

@@ -15,7 +15,7 @@ const Item = styled(Container)(({}) => ({
 const PromoBanner = ({promoBannerData}) => {
     const {name, Title, Description, image} = promoBannerData;
 
-    console.log('PromoBannerData: ', promoBannerData)
+    // console.log('PromoBannerData: ', promoBannerData)
     return (
         <Box
             component="section"
@@ -50,7 +50,7 @@ const PromoBanner = ({promoBannerData}) => {
                             justifyContent="center"
                             height="100%"
                             p="4rem 4rem 4rem 0rem"
-                            spacing={2}
+                            spacing={4}
                         >
                             <TypographyDS
                                 variant="h1"
@@ -60,7 +60,7 @@ const PromoBanner = ({promoBannerData}) => {
                                 color="black"
                                 letterSpacing='1.43px'
                                 lineHeight='44px'
-                                textTransform='capitalize'
+                                textTransform='uppercase'
                             >
                                 {Title}
                             </TypographyDS>

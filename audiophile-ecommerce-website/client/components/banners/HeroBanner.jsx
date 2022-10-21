@@ -11,7 +11,7 @@ import {TypographyDS} from '../typography';
 const HeroBanner = ({heroBannerData}) => {
     const {name, Description, Label, Title, image, buttonText} = heroBannerData;
 
-    console.log('heroBannerData: ', heroBannerData)
+    // console.log('heroBannerData: ', heroBannerData)
     return (
         <Stack
             component="section"
@@ -41,7 +41,7 @@ const HeroBanner = ({heroBannerData}) => {
                     letterSpacing='10px'
                     fontWeight={400}
                     fontSize='14px'
-                    textTransform='capitalize'
+                    textTransform='uppercase'
                 >
                     {Label}
                 </TypographyDS>
@@ -53,7 +53,7 @@ const HeroBanner = ({heroBannerData}) => {
                     color="white"
                     letterSpacing='2px'
                     lineHeight='58px'
-                    textTransform='capitalize'
+                    textTransform='uppercase'
                 >
                     {Title}
                 </TypographyDS>
@@ -71,7 +71,7 @@ const HeroBanner = ({heroBannerData}) => {
                     <TypographyDS
                         variant="subtitle1"
                         component="p"
-                        textTransform='capitalize'
+                        textTransform='uppercase'
                         fontWeight="bold"
                         fontSize='13px'
                         lineHeight='25px'
