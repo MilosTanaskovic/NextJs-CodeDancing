@@ -71,16 +71,6 @@ export const getServerSideProps = async () => {
   const infoData = await client.fetch(queryInfo);
 
 
-
-  if(!categoryData) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
-  }
-
   return {
     props: {
       bannerData,

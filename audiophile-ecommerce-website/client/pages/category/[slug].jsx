@@ -12,7 +12,7 @@ import { PromoBanner } from '../../components/banners';
 const Category = ({productData}) => {
     const {categories, promoBanner} = useStateContext();
 
-    console.log('Category Products Data: ', productData)
+    // console.log('Category Products Data: ', productData)
     return (
         <Box
             component="div"
@@ -64,12 +64,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({params: {slug}}) => {
     const queryProduct = `*[_type == "product" && productcategory == "${slug}"]`;
     const productData = await client.fetch(queryProduct);
-
-    if(!productData) {
-        return {
-            notFound: true,
-        }
-    }
 
     return {
         props: {

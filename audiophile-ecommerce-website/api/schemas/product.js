@@ -103,6 +103,12 @@ export default {
             type: 'string',
             title: 'Label',
             description: 'Label Title Prod',
-        }
+        },
+        {
+            name: 'brandname',
+            type: 'string',
+            title: 'Brand Name',
+            description: 'Desc Title Brand Name',
+        },
     ]
 }

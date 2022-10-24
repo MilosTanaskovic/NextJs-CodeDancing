@@ -3,7 +3,8 @@ import React from 'react'
 import {Typography} from '@mui/material';
 
 const TypographyDS = ({
-    children, 
+    children,
+    key,
     variant,
     component,
     align,
@@ -19,6 +20,7 @@ const TypographyDS = ({
 }) => {
     return (
         <Typography
+            key={key}
             variant={variant}
             component={component}
             align={align}

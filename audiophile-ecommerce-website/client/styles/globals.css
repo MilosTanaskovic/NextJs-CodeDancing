@@ -30,7 +30,7 @@ a {
   }
 }
 @media (min-width: 800px) {
-  .category-reverse:nth-child(2n) {
+  .category-reverse::nth-of-type(odd) {
     flex-direction: row-reverse;
   }
 }

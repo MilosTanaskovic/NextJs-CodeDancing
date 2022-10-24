@@ -1,7 +1,9 @@
 import React from 'react';
 
-import {Box, Grid, Paper, Stack} from '@mui/material';
+import Link from 'next/link';
+import {Box, ButtonGroup, Button, Grid, Paper, Stack} from '@mui/material';
 import {styled} from '@mui/material/styles';
+import { useRouter } from 'next/router';
 
 import {urlFor} from '../lib/client'
 import { TypographyDS } from './typography';
@@ -14,7 +16,12 @@ const ImgContainer = styled(Paper)(({}) => ({
 }))
 
 const CategoryProduct = ({item}) => {
-    const {name, label, title, description, image} = item;
+    const {name, label, title, description, image, slug, price} = item;
+
+    const router = useRouter();
+    const {pathname} = router;
+
+    // console.log('pathname', pathname)
     return (
         <Grid
             container
@@ -79,19 +86,68 @@ const CategoryProduct = ({item}) => {
                     >
                         {description}
                     </TypographyDS>
-                    <ButtonOne>
+                    {/** For Category Page */}
+                    {pathname === '/category/[slug]' && (
+                        <ButtonOne>
+                            <TypographyDS
+                                variant="subtitle1"
+                                component="p"
+                                textTransform='uppercase'
+                                fontWeight="bold"
+                                fontSize='13px'
+                                lineHeight='25px'
+                                letterSpacing='1px'
+                            >
+                                <Link href={`/product/${slug.current}`}>
+                                   SEE PRODUCT
+                                </Link>
+                            </TypographyDS>
+                        </ButtonOne>
+                    )}
+                    {/** For Product Page */}
+                    {pathname === '/product/[slug]' && (
+                        <>
                         <TypographyDS
                             variant="subtitle1"
                             component="p"
-                            textTransform='uppercase'
                             fontWeight="bold"
-                            fontSize='13px'
-                            lineHeight='25px'
-                            letterSpacing='1px'
+                            fontSize='18px'
+                            lineHeight='auto'
+                            letterSpacing='1.29px'
                         >
-                            SEE PRODUCT
+                            ${price}
                         </TypographyDS>
-                    </ButtonOne>
+                        <Stack
+                            direction="row"
+                            spacing={3}
+                            alignItems="start"
+                        >
+                            <ButtonGroup
+                                variant="outlined"
+                                aria-label="outlined button group"
+                            >
+                                <Button>-</Button>
+                                <Button>1</Button>
+                                <Button>+</Button>
+                            </ButtonGroup>
+                            <ButtonOne>
+                                <TypographyDS
+                                    variant="subtitle1"
+                                    component="p"
+                                    textTransform='uppercase'
+                                    fontWeight="bold"
+                                    fontSize='13px'
+                                    lineHeight='25px'
+                                    letterSpacing='1px'
+                                >
+                                    <Link href={`/product/${slug.current}`}>
+                                        ADD TO CART
+                                    </Link>
+                                </TypographyDS>
+                            </ButtonOne>
+                        </Stack>
+                        </>
+                    )}
                 </Stack>
             </Grid>
         </Grid>

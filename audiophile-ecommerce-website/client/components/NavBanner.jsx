@@ -10,7 +10,8 @@ import CategoryBanner from './banners/CategoryBanner';
 const NavBanner = () => {
     const {heroBanner} = useStateContext();
     const router = useRouter();
-    const {slug, pathname} = router.query;
+    const {slug} = router.query;
+    const {pathname} = router;
 
     // console.log('slug', slug)
     // console.log('router', router)
@@ -22,6 +23,8 @@ const NavBanner = () => {
         return (<CategoryBanner slug={slug} />)
     } else if(slug === 'earphones'){
         return (<CategoryBanner slug={slug} />)
+    } else if(pathname === '/product/[slug]') {
+        return;
     }
 
     return (
