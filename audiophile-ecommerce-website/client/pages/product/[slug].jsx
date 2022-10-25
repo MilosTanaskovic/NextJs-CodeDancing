@@ -12,11 +12,12 @@ import { PromoBanner } from '../../components/banners';
 import { useStateContext } from '../../context/StateContext';
 import ProductsMarquee from '../../components/ProductsMarquee';
 
+
 // Pages with Dynamic Routes [product/product1, product/product2, ...]
 const ProductDetail = ({product, products}) => {
-    const {categories, promoBanner} = useStateContext();
+    const {categories, promoBanner, showCart} = useStateContext();
 
-    console.log('Product Detail ', product);
+    console.log('show cart ', showCart);
     return (
         <Box
             component="div"
@@ -25,9 +26,10 @@ const ProductDetail = ({product, products}) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 width: {xs: '327px', sm: '500px', md: '689px', lg: '1110px'},
-                height: 'auto',       
+                height: 'auto',  
             }}
         >
+           
             {/** Go Back Link Section */}
             <Container
                 component="section"

@@ -17,10 +17,11 @@ const ButtonSecondary = styled(Button)(({}) => ({
     }
 }));
 
-const ButtonThree = ({children}) => {
+const ButtonThree = ({children, href}) => {
     return (
         <ButtonSecondary
             endIcon={<ArrowForwardIosIcon fontSize='small' sx={{color: '#D87D4A'}} />}
+            href={href}
         >      
             {children}
         </ButtonSecondary>

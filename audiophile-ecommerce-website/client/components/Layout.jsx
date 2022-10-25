@@ -5,8 +5,10 @@ import NavBar from './NavBar';
 import { Footer } from '.';
 import UnderLine from './UnderLine';
 import NavBanner from './NavBanner';
+import { useStateContext } from '../context/StateContext';
 
 const Layout = ({children}) => {
+    const {showCart} = useStateContext()
     return (
         <div>
             <Head>
@@ -26,7 +28,7 @@ const Layout = ({children}) => {
                 <UnderLine />
                 <NavBanner />
             </header>
-            <main>
+            <main style={{opacity: showCart ? '0.33' : '1', pointerEvents: showCart ? 'none' : ''}}>
                 {children}
             </main>
             <footer className="footer">

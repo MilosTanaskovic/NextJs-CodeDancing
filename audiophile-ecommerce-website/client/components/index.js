@@ -5,7 +5,8 @@ export {default as Footer} from './Footer';
 export {default as Categories} from './Categories';
 export {default as Category} from './Category';
 
-export {default as ProductsMarquee} from './ProductsMarquee.jsx';
-export {default as ProductMarquee} from './ProductMarquee.jsx';
+export {default as ProductsMarquee} from './ProductsMarquee';
+export {default as ProductMarquee} from './ProductMarquee';
+export {default as ProductCart} from './ProductCart';
 
 export {default as UnderLine} from './UnderLine';

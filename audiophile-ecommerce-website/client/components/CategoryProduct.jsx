@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import {urlFor} from '../lib/client'
 import { TypographyDS } from './typography';
 import { ButtonOne } from './buttons';
+import { useStateContext } from '../context/StateContext';
 
 const ImgContainer = styled(Paper)(({}) => ({
     textAlign: 'center',
@@ -17,6 +18,7 @@ const ImgContainer = styled(Paper)(({}) => ({
 
 const CategoryProduct = ({item}) => {
     const {name, label, title, description, image, slug, price} = item;
+    const {handleIncQty, handleDecQty, qty, handleAddToCart} = useStateContext();
 
     const router = useRouter();
     const {pathname} = router;
@@ -88,7 +90,9 @@ const CategoryProduct = ({item}) => {
                     </TypographyDS>
                     {/** For Category Page */}
                     {pathname === '/category/[slug]' && (
-                        <ButtonOne>
+                        <ButtonOne
+                            href={`/product/${slug.current}`}
+                        >
                             <TypographyDS
                                 variant="subtitle1"
                                 component="p"
@@ -98,9 +102,7 @@ const CategoryProduct = ({item}) => {
                                 lineHeight='25px'
                                 letterSpacing='1px'
                             >
-                                <Link href={`/product/${slug.current}`}>
-                                   SEE PRODUCT
-                                </Link>
+                                SEE PRODUCT
                             </TypographyDS>
                         </ButtonOne>
                     )}
@@ -126,11 +128,13 @@ const CategoryProduct = ({item}) => {
                                 variant="outlined"
                                 aria-label="outlined button group"
                             >
-                                <Button>-</Button>
-                                <Button>1</Button>
-                                <Button>+</Button>
+                                <Button onClick={handleDecQty}>-</Button>
+                                <Button>{qty}</Button>
+                                <Button onClick={handleIncQty}>+</Button>
                             </ButtonGroup>
-                            <ButtonOne>
+                            <ButtonOne
+                                handleClick={() => handleAddToCart(item, qty)}
+                            >
                                 <TypographyDS
                                     variant="subtitle1"
                                     component="p"
@@ -140,9 +144,7 @@ const CategoryProduct = ({item}) => {
                                     lineHeight='25px'
                                     letterSpacing='1px'
                                 >
-                                    <Link href={`/product/${slug.current}`}>
-                                        ADD TO CART
-                                    </Link>
+                                    ADD TO CART
                                 </TypographyDS>
                             </ButtonOne>
                         </Stack>

@@ -17,10 +17,11 @@ const ButtonPrimary = styled(Button)(({}) => ({
     }
 }));
 
-const ButtonTwo = ({children}) => {
+const ButtonTwo = ({children, href}) => {
     return (
         <ButtonPrimary
             variant="contained"
+            href={href}
         >
             {children}
         </ButtonPrimary>

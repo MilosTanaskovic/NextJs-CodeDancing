@@ -49,10 +49,10 @@ const Category = ({categoryData}) => {
                     >
                         {name}
                     </TypographyDS>
-                    <ButtonThree>
-                        <Link href={`/category/${slug.current}`}>
-                            {btnText}
-                        </Link>
+                    <ButtonThree
+                        href={`/category/${slug.current}`}
+                    >
+                        {btnText}
                     </ButtonThree>
                 </Box>
             </Item>
