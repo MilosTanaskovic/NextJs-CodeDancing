@@ -12,11 +12,33 @@ export const StateContext = ({children}) => {
     const [cartQty, setCartQty] = useState(0);
     // Cart State
     const [showCart, setShowCart] = useState(false);
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
 
     let foundProduct;
     let index;
+
+     {/** localStorage */}
+     useEffect(() => {
+         if(typeof window !== "undefined") {
+            localStorage.setItem('items', JSON.stringify(cartItems));
+         }
+     }, [cartItems]);
+ 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            console.log('You are on the browser')
+            // 👉️ can use localStorage here
+            const value = localStorage.getItem('items');
+            const data = !!value ? JSON.parse(value) : undefined;
+           
+           setCartItems(data);
+        } else {
+            console.log('You are on the server')
+            // 👉️ can't use localStorage
+        }
+         
+     }, [])
 
     const handleAddToCart = (product, quantity) => {
        // check is product in cart
