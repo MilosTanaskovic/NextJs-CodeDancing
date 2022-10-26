@@ -6,6 +6,7 @@ import { TypographyDS } from './typography';
 import { useStateContext } from '../context/StateContext';
 
 import {urlFor} from '../lib/client'
+import { getStripe } from '../lib/getStripe';
 
 const ProductCart = () => {
     const {
@@ -16,6 +17,24 @@ const ProductCart = () => {
         handleToggleCartItemQty,
         handleRemoveAllProductCart
     } = useStateContext();
+
+    const handleCheckout = async () => {
+        const stripe = await getStripe();
+
+        const response = await fetch('/api/stripe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cartItems),
+        });
+
+        if(response.statusCode === 500) return;
+
+        const data = await response.json();
+
+        stripe.redirectToCheckout({sessionId: data.id});
+    }
 
     console.log('Cart', cartItems)
     return (
@@ -156,6 +175,7 @@ const ProductCart = () => {
                 {cartItems.length && (
                     <ButtonOne
                         widthFull={'100%'}
+                        handleClick={handleCheckout}
                     >
                         <TypographyDS
                             variant="subtitle1"
