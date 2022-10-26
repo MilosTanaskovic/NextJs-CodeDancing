@@ -14,6 +14,7 @@ const HeroBanner = ({heroBanner}) => {
         product,  
         saleTime,
         smallText,
+        slug
     } = heroBanner;
 
     console.log('heroBanner: ', heroBanner);
@@ -26,8 +27,9 @@ const HeroBanner = ({heroBanner}) => {
             <img src={urlFor(image)} alt={product} className="hero-banner-image" />
 
             <div>
-                <Link href={`/product/${product}`}>
-                    <button type="button">
+                    {/** /product/${product} */}
+                <Link href={``}>
+                    <button type="button" style={{textTransform: 'uppercase'}}>
                         {buttonText}
                     </button>
                 </Link>

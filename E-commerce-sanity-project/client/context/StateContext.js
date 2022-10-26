@@ -92,7 +92,10 @@ export const StateContext = ({ children }) => {
                 handleDecQty,
                 handleAddToCart,
                 handleToggleCartItemQty,
-                handleRemoveItemCart
+                handleRemoveItemCart,
+                setCartItems,
+                setTotalPrice,
+                setTotalQuantities,
             }}
         >
             { children }

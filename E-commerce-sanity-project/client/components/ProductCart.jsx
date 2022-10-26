@@ -9,7 +9,7 @@ const ProductCart = ({product}) => {
     const {details, image, name, price, quantity, _id } = product
     const {handleToggleCartItemQty, handleRemoveItemCart} = useStateContext()
 
-    console.log('product cart: ', product);
+    //console.log('product cart: ', product);
     return (
         <div className="product">
             <img 

@@ -18,7 +18,7 @@ const Home = ({products, bannerData}) => {
   return (
     <div>
       
-      <HeroBanner heroBanner={bannerData.length && (heroBannerObj[0])} />
+      <HeroBanner heroBanner={bannerData.length && (heroBannerObj[0]) } />
 
       <div className="products-heading">
         <h2>Beset Selling Products</h2>

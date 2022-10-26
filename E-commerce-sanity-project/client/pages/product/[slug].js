@@ -7,14 +7,20 @@ import {client, urlFor} from '../../lib/client';
 import { useStateContext } from '../../context/StateContext'
 
 const ProductDetails = ({product, products}) => {
-    const {details, image, name, price, slug, _id} = product;
+    const {details, image, name, price} = product;
     const [index, setIndex] = useState(0);
 
-    const { qty, handleIncQty, handleDecQty, handleAddToCart } = useStateContext();
+    const { qty, handleIncQty, handleDecQty, handleAddToCart, setShowCart } = useStateContext();
 
-    console.log('Product Detail: ', product);
-    console.log('Products Detail: ', products);
-    console.log('useSC - qty: ', qty);
+    const handleBuyNow = () => {
+        handleAddToCart(product, qty);
+
+        setShowCart(true);
+    }
+
+    //console.log('Product Detail: ', product);
+    //console.log('Products Detail: ', products);
+    //console.log('useSC - qty: ', qty);
     return (
         <div>
             <div className="product-detail-container">
@@ -93,7 +99,7 @@ const ProductDetails = ({product, products}) => {
                         <button
                             type="button"
                             className="buy-now"
-                            onClick=""
+                            onClick={handleBuyNow}
                         >
                             Buy Now
                         </button>

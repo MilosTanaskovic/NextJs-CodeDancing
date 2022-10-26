@@ -6,7 +6,7 @@ import {urlFor} from '../lib/client'
 const Product = ({product}) => {
     const {image, name, slug, price} = product;
 
-    console.log(slug)
+    //console.log(slug)
     return (
         <div>
             <Link 
